@@ -1,5 +1,8 @@
 FROM node:carbon 
 
+# Set webpack dev server to use polling
+ENV CHOKIDAR_USEPOLLING true
+
 # Create app directory
 WORKDIR /web
 
