@@ -1,0 +1,19 @@
+# Development compose file (docker-compose.dev.yml)
+
+version: '3.2'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Web.Dockerfile
+    volumes:
+      - /web/node_modules # prevent them being overwritten by the above
+      - ./web:/web
+    environment:
+      NODE_ENV: development
+      SSL: 'false'
+      URL: localhost
+      PORT: 3000
+    ports:
+      - 3000:3000

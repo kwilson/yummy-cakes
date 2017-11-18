@@ -1,0 +1,11 @@
+{
+  "name": "yummy-cakes",
+  "version": "1.0.0",
+  "description": "A very simple app that can allow a user to and a view and add to a list of favorite cakes.",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose -f docker-compose.yml up --build"
+  },
+  "author": "",
+  "license": "ISC"
+}
