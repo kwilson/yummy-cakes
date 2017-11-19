@@ -22,8 +22,8 @@ services:
       context: .
       dockerfile: API.Dockerfile
     volumes:
-      - /api/node_modules # prevent them being overwritten by the above
-      - ./rest-api:/api
+      - /rest-api/node_modules # prevent them being overwritten by the above
+      - ./rest-api:/rest-api
     environment:
       NODE_ENV: development
       SSL: 'false'
