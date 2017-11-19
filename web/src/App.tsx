@@ -1,19 +1,19 @@
 import * as React from 'react';
 import './App.css';
 
-const logo = require('./logo.svg');
-
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React 2</h2>
+      <div className="app">
+        <header className="app__header">
+          <h1>Yummy Cakes</h1>
+        </header>
+
+        <div className="app__body">
+          <p>Body goes here</p>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+
+        <footer className="app__footer">Created by Kevin Wilson</footer>
       </div>
     );
   }
