@@ -8,8 +8,8 @@ services:
       context: .
       dockerfile: Web.Dockerfile
     volumes:
-      - /web/node_modules # prevent them being overwritten by the above
       - ./web:/web
+      - /web/node_modules
     environment:
       NODE_ENV: development
       SSL: 'false'
@@ -22,8 +22,8 @@ services:
       context: .
       dockerfile: API.Dockerfile
     volumes:
-      - /rest-api/node_modules # prevent them being overwritten by the above
       - ./rest-api:/rest-api
+      - /rest-api/node_modules
     environment:
       NODE_ENV: development
       SSL: 'false'

@@ -1,9 +1,17 @@
 const uuidv1 = require("uuid/v1");
+const { random, find, sample } = require("lodash");
 const Cake = require("../models/Cake");
 
 // In-memory collection for dev
+const comments = ["Awesome!", "Check this out.", "I like cake", "FIRST!"];
 const createNewCake = (name, imageUrl) =>
-  new Cake(uuidv1(), name, `/images/${imageUrl}`);
+  new Cake(
+    uuidv1(),
+    name,
+    `/images/${imageUrl}`,
+    random(1, 5),
+    sample(comments)
+  );
 
 const cakes = [
   createNewCake("R2D2 Birthday Cake", "1.jpg"),
@@ -21,9 +29,9 @@ function getAll() {
 
 function getById(id) {
   return new Promise((resolve, reject) => {
-    const match = cakes.filter(x => x.id === id);
-    if (match && match.length === 1) {
-      return resolve(match[0]);
+    const match = find(cakes, x => x.id === id);
+    if (match) {
+      return resolve(match);
     }
 
     reject(`No cake with ID '${id}'`);
