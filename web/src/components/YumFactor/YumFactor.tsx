@@ -6,7 +6,7 @@ export interface YumFactorStateProps {
 }
 
 const YumFactor: React.StatelessComponent<YumFactorStateProps> = ({ value }) => {
-  if (!value) {
+  if (!value || value < 1 || value > 5) {
     return null;
   }
 
