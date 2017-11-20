@@ -1,26 +1,32 @@
 import { ThunkAction } from 'redux-thunk';
 import rest from '../reducers/rest';
+import { isCakesListLoading } from '../selectors';
+import { AppState } from '../reducers';
 
-const fetchCakes = (): ThunkAction<void, void, void> => dispatch => {
+export const SELECT_CAKE = 'SELECT_CAKE';
+export const CLEAR_SELECTED_CAKE = 'CLEAR_SELECTED_CAKE';
+
+const fetchCakes = (): ThunkAction<void, AppState, void> => dispatch => {
   return dispatch(rest.actions.cakes());
 };
 
-const shouldFetchCakes = () => {
-  return true;
+const shouldFetchCakes = (state: AppState) => {
+  return !isCakesListLoading(state);
 };
 
-export const selectCake = (id: string) => {
-  console.log('select', id);
-  return {
-    type: 'SELECT_CAKE',
+export const selectCake = (id: string) => ({
+    type: SELECT_CAKE,
     payload: {
       id
     }
-  };
-};
+});
 
-export const fetchCakesIfNeeded = (): ThunkAction<void, void, void> => dispatch => {
-  if (shouldFetchCakes()) {
+export const clearSelectedCake = () => ({
+  type: CLEAR_SELECTED_CAKE
+});
+
+export const fetchCakesIfNeeded = (): ThunkAction<void, AppState, void> => (dispatch, getState) => {
+  if (shouldFetchCakes(getState())) {
     return dispatch(fetchCakes());
   }
 };

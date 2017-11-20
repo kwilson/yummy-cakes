@@ -1,21 +1,19 @@
 import * as React from 'react';
+
 import Cake from './Cake';
 import { CakeModel } from '../models/CakeModel';
 
 import './CakeList.css';
 
-export interface CakeListStateProps {
+export interface CakeListProps {
   cakes: CakeModel[];
-  isLoading: boolean;
+  onSelectCake: (id: string) => any;
 }
 
-export interface CakeListDispatchProps {
-  selectCake: (id: string) => any;
-}
-
-const CakeList: React.StatelessComponent<CakeListStateProps & CakeListDispatchProps> = props => {
+const CakeList: React.StatelessComponent<CakeListProps> = props => {
   const cakes = props.cakes.map(x => {
-    const onClick = () => props.selectCake(x.id);
+    const onClick = () => props.onSelectCake(x.id);
+
     return (
       <li key={x.id} className="cake-wrapper">
         <Cake

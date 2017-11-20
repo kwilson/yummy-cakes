@@ -12,7 +12,7 @@ const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(thunk)
 ));
 
-import App from './components/App';
+import App from './containers/App';
 
 import './index.css';
 
