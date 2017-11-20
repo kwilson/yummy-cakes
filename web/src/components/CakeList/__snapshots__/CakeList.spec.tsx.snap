@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CakeList Component displays placeholder text if there are no cakes 1`] = `
+<div
+  className="cake-list--empty"
+>
+  No cakes to view
+</div>
+`;
+
+exports[`CakeList Component retuns a child component for each cake 1`] = `
+<ul
+  className="cake-list"
+>
+  <li
+    className="cake-wrapper"
+  >
+    <button
+      className="cake"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundImage": "url(undefined)",
+        }
+      }
+    >
+      <div
+        className="cake__details"
+      >
+        Cake Name 1
+      </div>
+    </button>
+  </li>
+  <li
+    className="cake-wrapper"
+  >
+    <button
+      className="cake"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundImage": "url(undefined)",
+        }
+      }
+    >
+      <div
+        className="cake__details"
+      >
+        Cake Name 2
+      </div>
+    </button>
+  </li>
+  <li
+    className="cake-wrapper"
+  >
+    <button
+      className="cake"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundImage": "url(undefined)",
+        }
+      }
+    >
+      <div
+        className="cake__details"
+      >
+        Cake Name 3
+      </div>
+    </button>
+  </li>
+  <li
+    className="cake-wrapper"
+  >
+    <button
+      className="cake"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundImage": "url(undefined)",
+        }
+      }
+    >
+      <div
+        className="cake__details"
+      >
+        Cake Name 4
+      </div>
+    </button>
+  </li>
+  <li
+    className="cake-wrapper"
+  >
+    <button
+      className="cake"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundImage": "url(undefined)",
+        }
+      }
+    >
+      <div
+        className="cake__details"
+      >
+        Cake Name 5
+      </div>
+    </button>
+  </li>
+</ul>
+`;

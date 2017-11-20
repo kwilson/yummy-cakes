@@ -11,7 +11,7 @@ export interface CakeListProps {
 }
 
 const CakeList: React.StatelessComponent<CakeListProps> = props => {
-  const cakes = props.cakes.map(x => {
+  const getCakes = (cakes: CakeModel[]) => cakes.map(x => {
     const onClick = () => props.onSelectCake(x.id);
 
     return (
@@ -24,7 +24,17 @@ const CakeList: React.StatelessComponent<CakeListProps> = props => {
     );
   });
 
-  return <ul className="cake-list">{cakes}</ul>;
+  if (!props.cakes || props.cakes.length < 1) {
+    return (
+      <div className="cake-list--empty">No cakes to view</div>
+    );
+  }
+
+  return (
+    <ul className="cake-list">
+      {getCakes(props.cakes)}
+    </ul>
+  );
 };
 
 export default CakeList;
