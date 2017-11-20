@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './CakeDetail.css';
-import { CakeModel } from '../models/CakeModel';
+import { CakeModel } from '../../models/CakeModel';
 
-import YumFactor from './YumFactor';
+import { YumFactor } from '../';
 
 export interface CakeDetailStateProps {
   selectedCake?: CakeModel;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Cake from './Cake';
-import { CakeModel } from '../models/CakeModel';
+import { Cake } from '../';
+import { CakeModel } from '../../models/CakeModel';
 
 import './CakeList.css';
 

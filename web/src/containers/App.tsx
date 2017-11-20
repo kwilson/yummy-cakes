@@ -6,8 +6,7 @@ import { fetchCakesIfNeeded, selectCake, clearSelectedCake } from '../actions';
 import { AppState } from '../reducers';
 import { getAllCakesList, isCakesListLoading, getSelectedCake } from '../selectors';
 
-import CakeList from '../components/CakeList';
-import CakeDetail from '../components/CakeDetail';
+import { CakeList, CakeDetail } from '../components/';
 
 import { CakeModel } from '../models/CakeModel';
 

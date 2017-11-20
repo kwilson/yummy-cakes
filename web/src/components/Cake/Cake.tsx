@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CakeModel } from '../models/CakeModel';
+import { CakeModel } from '../../models/CakeModel';
 
 import './Cake.css';
 
