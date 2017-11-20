@@ -1,0 +1,25 @@
+.cake-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.cake-list > .cake-wrapper {
+    background: url('/img/no-img.png') 50% 50% no-repeat;
+    background-size: cover;
+    width: 25%;
+    border: solid 5px transparent;
+    transition: .25s ease-in-out border;
+}
+
+    .cake-list > .cake-wrapper::before {
+        content: '';
+        float: left;
+        padding-top: 100%;
+    }
+
+.cake-list--empty {
+    text-align: center;
+}

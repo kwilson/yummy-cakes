@@ -22,6 +22,12 @@ function getById(req, res, next) {
 }
 
 var server = restify.createServer();
+server.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 server.get("/cakes", getAllCakes);
 server.head("/cakes", getAllCakes);
 
@@ -31,6 +37,8 @@ server.head("/cakes/:id", getById);
 process.on("unhandledRejection", error => {
   console.error("unhandledRejection", error.message);
 });
+
+server.use(restify.plugins.fullResponse());
 
 server.listen(process.env.PORT || 8080, () => {
   console.log("%s listening at %s", server.name, server.url);

@@ -1,0 +1,44 @@
+.cake-detail {
+    color: white;
+    position: absolute;
+    background: rgba(0,0,0,.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 40px 20px;
+    text-align: center;
+    overflow: auto;
+}
+
+.cake-detail__img-container {
+    text-align: center;
+}
+
+.cake-detail__img {
+    height: auto;
+    max-width: 100%;
+    max-height: 600px;
+}
+
+
+.cake-detail__comment blockquote {
+    font-style: italic;
+}
+
+    .cake-detail__comment blockquote::before,
+    .cake-detail__comment blockquote::after {
+        content: '"';
+    }
+
+    .cake-detail__close {
+        background: rgb(169, 6, 6);
+        border: solid 1px white;
+        padding: 5px;
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-transform: uppercase;
+    }

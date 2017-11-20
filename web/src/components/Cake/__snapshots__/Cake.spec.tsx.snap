@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cake Component renders an empty container if the model has no name 1`] = `
+<button
+  className="cake"
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundImage": "url(undefined)",
+    }
+  }
+/>
+`;
+
+exports[`Cake Component renders the name from the model 1`] = `
+<button
+  className="cake"
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundImage": "url(undefined)",
+    }
+  }
+>
+  <div
+    className="cake__details"
+  >
+    Name of the cake
+  </div>
+</button>
+`;

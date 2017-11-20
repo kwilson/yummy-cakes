@@ -1,0 +1,25 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app > * {
+  padding: 10px 15px;
+}
+
+.app__header {
+  background: #efefef;
+}
+
+.app__body {
+  flex: 1;
+  overflow: auto;
+}
+
+.app__footer {
+  background-color:#333;
+  color: #eee;
+  text-align: right;
+}
+

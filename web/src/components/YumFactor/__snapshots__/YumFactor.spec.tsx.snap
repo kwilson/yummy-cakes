@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YumFactor component renders null if the value is 0 1`] = `null`;
+
+exports[`YumFactor component renders null if the value is 6 1`] = `null`;
+
+exports[`YumFactor component renders null if there is no value 1`] = `null`;
+
+exports[`YumFactor component renders the correct stars for each value 1`] = `
+<div
+  className="yum-factor"
+>
+  Yum Factor
+  <div
+    aria-label="1 out of 5"
+    className="yum-factor__rating"
+    title="1 out of 5"
+  >
+    ★☆☆☆☆
+  </div>
+</div>
+`;
+
+exports[`YumFactor component renders the correct stars for each value 2`] = `
+<div
+  className="yum-factor"
+>
+  Yum Factor
+  <div
+    aria-label="2 out of 5"
+    className="yum-factor__rating"
+    title="2 out of 5"
+  >
+    ★★☆☆☆
+  </div>
+</div>
+`;
+
+exports[`YumFactor component renders the correct stars for each value 3`] = `
+<div
+  className="yum-factor"
+>
+  Yum Factor
+  <div
+    aria-label="3 out of 5"
+    className="yum-factor__rating"
+    title="3 out of 5"
+  >
+    ★★★☆☆
+  </div>
+</div>
+`;
+
+exports[`YumFactor component renders the correct stars for each value 4`] = `
+<div
+  className="yum-factor"
+>
+  Yum Factor
+  <div
+    aria-label="4 out of 5"
+    className="yum-factor__rating"
+    title="4 out of 5"
+  >
+    ★★★★☆
+  </div>
+</div>
+`;
+
+exports[`YumFactor component renders the correct stars for each value 5`] = `
+<div
+  className="yum-factor"
+>
+  Yum Factor
+  <div
+    aria-label="5 out of 5"
+    className="yum-factor__rating"
+    title="5 out of 5"
+  >
+    ★★★★★
+  </div>
+</div>
+`;

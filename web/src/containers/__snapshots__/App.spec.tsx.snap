@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Container App component dispatches fetchCakesIfNeeded on mount 1`] = `
+<div
+  className="app"
+>
+  <header
+    className="app__header"
+  >
+    <h1>
+      Yummy Cakes
+    </h1>
+  </header>
+  <div
+    className="app__body"
+  >
+    <div
+      className="cake-list--empty"
+    >
+      No cakes to view
+    </div>
+  </div>
+  <footer
+    className="app__footer"
+  >
+    Created by Kevin Wilson
+  </footer>
+</div>
+`;
+
+exports[`App Container App component passes props to child components 1`] = `
+<div
+  className="app"
+>
+  <header
+    className="app__header"
+  >
+    <h1>
+      Yummy Cakes
+    </h1>
+  </header>
+  <div
+    className="app__body"
+  >
+    <div
+      className="cake-list--empty"
+    >
+      No cakes to view
+    </div>
+    <div
+      className="cake-detail"
+    >
+      <div
+        className="cake-detail__img-container"
+      >
+        <img
+          className="cake-detail__img"
+          src={undefined}
+        />
+      </div>
+      <h1
+        className="cake-detail__heading"
+      />
+      <div
+        className="cake-detail__yum"
+      />
+      <div
+        className="cake-detail__comment"
+      >
+        <h2>
+          Comments
+        </h2>
+        <div
+          className="cake-detail__comment-value"
+        >
+          No comments
+        </div>
+      </div>
+      <button
+        className="cake-detail__close"
+        onClick={[Function]}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+  <footer
+    className="app__footer"
+  >
+    Created by Kevin Wilson
+  </footer>
+</div>
+`;

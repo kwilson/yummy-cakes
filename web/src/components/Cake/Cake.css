@@ -1,0 +1,26 @@
+.cake {
+    background: none;
+    border: none;
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: pointer;
+    height: 100%;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.cake__details {
+    background-color: rgba(0,0,0,.4);
+    bottom: 0;
+    color: white;
+    padding: 5px 10px;
+    position: absolute;
+    text-align: center;
+    transition: background .25s linear;
+    width: 100%;
+}
+
+.cake:hover .cake__details {
+    background-color: rgba(0,0,0,.8);
+}
