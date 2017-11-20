@@ -4,14 +4,14 @@ import './App.css';
 
 import AllCakesList from '../containers/AllCakesList';
 import { fetchCakesIfNeeded } from '../actions';
-import { Cake } from '../models/Cake';
+import { CakeModel } from '../models/CakeModel';
 
 export interface AppState {
   restReducers: {
     cakes: {
       loading: boolean;
       data: {
-        data?: Cake[]
+        data?: CakeModel[]
       }
     }
   };

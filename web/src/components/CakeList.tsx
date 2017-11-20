@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { Cake } from '../models/Cake';
+import Cake from './Cake';
+import { CakeModel } from '../models/CakeModel';
+
+import './CakeList.css';
 
 export interface CakeListStateProps {
-  cakes: Cake[];
+  cakes: CakeModel[];
   isLoading: boolean;
 }
 
@@ -14,13 +17,16 @@ const CakeList: React.StatelessComponent<CakeListStateProps & CakeListDispatchPr
   const cakes = props.cakes.map(x => {
     const onClick = () => props.selectCake(x.id);
     return (
-      <p onClick={onClick} key={x.id}>
-        {x.name}
-      </p>
+      <li key={x.id} className="cake-wrapper">
+        <Cake
+          cake={x}
+          selectCake={onClick}
+        />
+      </li>
     );
   });
 
-  return <div>{cakes}</div>;
+  return <ul className="cake-list">{cakes}</ul>;
 };
 
 export default CakeList;

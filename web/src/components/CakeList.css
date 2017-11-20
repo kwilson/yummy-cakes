@@ -1,0 +1,12 @@
+.cake-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.cake-list > .cake-wrapper {
+    margin: 5px;
+}
+
