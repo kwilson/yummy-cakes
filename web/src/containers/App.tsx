@@ -22,7 +22,7 @@ export interface AppDispatchProps {
   clearSelectedCake: () => any;
 }
 
-const mapStateToProps: MapStateToProps<AppStateProps, void, AppState> = (state) => {
+export const mapStateToProps: MapStateToProps<AppStateProps, void, AppState> = (state) => {
   return {
     allCakes: getAllCakesList(state),
     selectedCake: getSelectedCake(state),
@@ -31,7 +31,7 @@ const mapStateToProps: MapStateToProps<AppStateProps, void, AppState> = (state) 
   };
 };
 
-const mapDispatchToProps: MapDispatchToProps<AppDispatchProps, void> = dispatch => {
+export const mapDispatchToProps: MapDispatchToProps<AppDispatchProps, void> = dispatch => {
   return {
     dispatch,
     selectCake: (id: string) => dispatch(selectCake(id)),
@@ -39,7 +39,7 @@ const mapDispatchToProps: MapDispatchToProps<AppDispatchProps, void> = dispatch 
   };
 };
 
-class App extends React.Component<AppStateProps & AppDispatchProps> {
+export class App extends React.Component<AppStateProps & AppDispatchProps> {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchCakesIfNeeded());
