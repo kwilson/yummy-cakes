@@ -32,7 +32,10 @@ const CakeDetail: React.StatelessComponent<CakeDetailStateProps> = ({ selectedCa
 
       <div className="cake-detail__comment">
         <h2>Comments</h2>
-        {comment}
+
+        <div className="cake-detail__comment-value">
+          {comment}
+        </div>
       </div>
 
       <button onClick={close} className="cake-detail__close">

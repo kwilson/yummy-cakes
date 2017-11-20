@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CakeDetail Component renders detals of the cake 1`] = `
+<div
+  className="cake-detail"
+>
+  <div
+    className="cake-detail__img-container"
+  >
+    <img
+      className="cake-detail__img"
+      src="http://imageurl.invalid"
+    />
+  </div>
+  <h1
+    className="cake-detail__heading"
+  >
+    Name Value
+  </h1>
+  <div
+    className="cake-detail__yum"
+  >
+    <div
+      className="yum-factor"
+    >
+      Yum Factor
+      <div
+        aria-label="4 out of 5"
+        className="yum-factor__rating"
+        title="4 out of 5"
+      >
+        ★★★★☆
+      </div>
+    </div>
+  </div>
+  <div
+    className="cake-detail__comment"
+  >
+    <h2>
+      Comments
+    </h2>
+    <div
+      className="cake-detail__comment-value"
+    >
+      <blockquote>
+        Comment value
+      </blockquote>
+    </div>
+  </div>
+  <button
+    className="cake-detail__close"
+    onClick={[Function]}
+  >
+    Close
+  </button>
+</div>
+`;
+
+exports[`CakeDetail Component renders empty comment text if there are no comments 1`] = `
+<div
+  className="cake-detail"
+>
+  <div
+    className="cake-detail__img-container"
+  >
+    <img
+      className="cake-detail__img"
+      src={undefined}
+    />
+  </div>
+  <h1
+    className="cake-detail__heading"
+  >
+    Name Value
+  </h1>
+  <div
+    className="cake-detail__yum"
+  />
+  <div
+    className="cake-detail__comment"
+  >
+    <h2>
+      Comments
+    </h2>
+    <div
+      className="cake-detail__comment-value"
+    >
+      No comments
+    </div>
+  </div>
+  <button
+    className="cake-detail__close"
+    onClick={[Function]}
+  >
+    Close
+  </button>
+</div>
+`;
+
+exports[`CakeDetail Component renders null if no cake is selected 1`] = `null`;
