@@ -3,6 +3,7 @@ import { AnyAction } from 'redux';
 
 export interface CakesState {
   selectedCakeId?: string;
+  isSubmitFormVisible?: boolean;
 }
 
 const cakeReducer = (state: CakesState = {}, action: AnyAction) => {
@@ -19,6 +20,20 @@ const cakeReducer = (state: CakesState = {}, action: AnyAction) => {
       return {
         ...state,
         selectedCakeId: undefined
+      };
+    }
+
+    case actions.SHOW_SUBMIT_CAKE: {
+      return {
+        ...state,
+        isSubmitFormVisible: true
+      };
+    }
+
+    case actions.CANCEL_SUBMIT_CAKE: {
+      return {
+        ...state,
+        isSubmitFormVisible: false
       };
     }
 

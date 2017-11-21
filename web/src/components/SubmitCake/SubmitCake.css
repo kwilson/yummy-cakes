@@ -1,0 +1,60 @@
+.submit-cake {
+    background: rgb(11, 78, 202);
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.submit-cake__form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.submit-cake__form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.submit-cake__form input {
+    margin-top: 5px;
+    padding: 10px 5px;
+}
+
+.submit-cake__actions {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .submit-cake__btn {
+        color: white;
+        cursor: pointer;
+        font-size: 1em;
+        padding: 5px 10px;
+    }
+
+    .submit-cake__btn--cancel {
+        order: 2;
+        padding-right: 0;
+    }
+
+        .submit-cake__btn--cancel:hover {
+            text-decoration: underline;
+        }
+
+    .submit-cake__btn--submit {
+        background: none;
+        border: solid 1px white;
+    }
+
+        .submit-cake__btn--submit:hover {
+            background: white;
+            color: black;
+        }
