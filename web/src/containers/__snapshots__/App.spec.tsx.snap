@@ -10,6 +10,12 @@ exports[`App Container App component dispatches fetchCakesIfNeeded on mount 1`] 
     <h1>
       Yummy Cakes
     </h1>
+    <button
+      className="btn-show-submit-form"
+      onClick={[Function]}
+    >
+      Submit A Cake
+    </button>
   </header>
   <div
     className="app__body"
@@ -38,6 +44,12 @@ exports[`App Container App component passes props to child components 1`] = `
     <h1>
       Yummy Cakes
     </h1>
+    <button
+      className="btn-show-submit-form"
+      onClick={[Function]}
+    >
+      Submit A Cake
+    </button>
   </header>
   <div
     className="app__body"

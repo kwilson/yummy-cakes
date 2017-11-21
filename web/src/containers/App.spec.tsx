@@ -132,6 +132,7 @@ describe('App Container', () => {
           allCakes={allCakes}
           isSubmitFormVisible={isSubmitFormVisible}
           isLoading={isLoading}
+          selectedCake={selectedCake}
 
           dispatch={mockDispatch}
           selectCake={mockSelectCake}
@@ -149,11 +150,11 @@ describe('App Container', () => {
       // Assert
       expect(el.find(CakeList).props().cakes).toBe(allCakes);
       el.find(CakeList).props().onSelectCake('test');
-      expect(selectCake).toHaveBeenCalledWith('test');
+      expect(mockSelectCake).toHaveBeenCalledWith('test');
 
       expect(el.find(CakeDetail).props().selectedCake).toBe(selectedCake);
       el.find(CakeDetail).props().close();
-      expect(clearSelectedCake).toHaveBeenCalled();
+      expect(mockClearSelectedCake).toHaveBeenCalled();
 
       expect(snapshot).toMatchSnapshot();
     });

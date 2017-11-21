@@ -2,7 +2,14 @@ import * as React from 'react';
 import { connect, Dispatch, MapStateToProps, MapDispatchToProps } from 'react-redux';
 import './App.css';
 
-import { fetchCakesIfNeeded, selectCake, clearSelectedCake, submitCake, cancelSubmitCake, showSubmitCakeForm } from '../actions';
+import {
+  fetchCakesIfNeeded,
+  selectCake,
+  clearSelectedCake,
+  submitCake,
+  cancelSubmitCake,
+  showSubmitCakeForm
+} from '../actions';
 import { AppState } from '../reducers';
 import { getAllCakesList, isCakesListLoading, getSelectedCake, isSubmitFormVisible } from '../selectors';
 
