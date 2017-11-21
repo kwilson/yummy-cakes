@@ -44,12 +44,12 @@ export const submitCake = (cake: NewCakeModel): ThunkAction<void, AppState, void
     rest.actions.cake(
       undefined, {
         body: JSON.stringify(cake)
-      },
-      () => {
-        dispatch(cancelSubmitCake());
-        dispatch(fetchCakes());
       }
-    ));
+    ))
+    .then(() => {
+      dispatch(cancelSubmitCake());
+      dispatch(fetchCakes());
+    });
 };
 
 export const cancelSubmitCake = () => ({
