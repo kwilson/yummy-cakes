@@ -28,10 +28,5 @@ I've created this as a React/Redux app using [Redux-Api](https://github.com/lexi
 
 The client code is Typescript 2.6.
 
-## Known Issues
-When POSTing a new Cake to the API, I get the 201 created response but the new item doesn't seem to be in the subsequent GET.
-
-Doing an empty POST also returns a 201 so I'm unsure if there's something up with the API or I'm overlooking something.
-
 ## Future Enhancements
 I was planning on creating a component for the 'Yum Factor' selector when POSTing a new Cake but ran out of time so that's just a numeric input field for now.
