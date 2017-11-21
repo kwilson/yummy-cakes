@@ -101,14 +101,16 @@ describe('Actions', () => {
         type: 'MOCK_POST_CAKE'
       };
 
-      asMock(rest.actions.cake).mockReturnValue((dispatch: Dispatch<any>) => dispatch(postNewCakeAction));
+      asMock(rest.actions.cake).mockReturnValue(
+        (dispatch: Dispatch<any>) => Promise.resolve(dispatch(postNewCakeAction)
+      ));
+      
       asMock(rest.actions.cakes).mockReturnValue((dispatch: Dispatch<any>) => dispatch(fetchCakesAction));
       
       const mockStore = createMockStore({});
 
       // Act
       await mockStore.dispatch(actions.submitCake(newCake));
-      await asMock(rest.actions.cake).mock.calls[0][2]();
 
       // Assert
       expect(mockStore.getActions()).toContain(postNewCakeAction);
