@@ -9,7 +9,7 @@
 .cake-list > .cake-wrapper {
     background: url('/img/no-img.png') 50% 50% no-repeat;
     background-size: cover;
-    width: 25%;
+    width: 100%;
     border: solid 5px transparent;
     transition: .25s ease-in-out border;
 }
@@ -22,4 +22,20 @@
 
 .cake-list--empty {
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    .cake-list > .cake-wrapper { width: 50% }
+}
+
+@media (min-width: 1024px) {
+    .cake-list > .cake-wrapper { width: 25% }
+}
+
+@media (min-width: 1440px) {
+    .cake-list > .cake-wrapper { width: 20% }
+}
+
+@media (min-width: 1800px) {
+    .cake-list > .cake-wrapper { width: 12.5% }
 }
