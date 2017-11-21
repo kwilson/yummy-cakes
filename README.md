@@ -9,7 +9,7 @@ There's still an open issue with the API that I logged within the repo on GitHub
 I've commented out the API launcher from the Docker compose file.
 
 ### Using Docker
-`npm start` from the project root wil mount the web app within a Docker container and launch at http://localhost:3000.
+`npm start` from the project root will mount the web app within a Docker container and launch at http://localhost:3000.
 
 ### Using Yarn
 - `cd web`  
