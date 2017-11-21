@@ -13,6 +13,12 @@ export interface RestState {
 }
 
 export default reduxApi({
-  cakes: `http://ec2-52-209-201-89.eu-west-1.compute.amazonaws.com/api/cakes/:id`
+  cakes: `http://ec2-52-209-201-89.eu-west-1.compute.amazonaws.com/api/cakes/:id`,
+  cake: {
+    url: `http://ec2-52-209-201-89.eu-west-1.compute.amazonaws.com/api/cakes`,
+    options: {
+      method: 'post'
+    }
+  }
 })
   .use('fetch', adapterFetch(fetch));

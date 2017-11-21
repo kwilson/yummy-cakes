@@ -2,17 +2,26 @@ import * as React from 'react';
 import { connect, Dispatch, MapStateToProps, MapDispatchToProps } from 'react-redux';
 import './App.css';
 
-import { fetchCakesIfNeeded, selectCake, clearSelectedCake } from '../actions';
+import {
+  fetchCakesIfNeeded,
+  selectCake,
+  clearSelectedCake,
+  submitCake,
+  cancelSubmitCake,
+  showSubmitCakeForm
+} from '../actions';
 import { AppState } from '../reducers';
-import { getAllCakesList, isCakesListLoading, getSelectedCake } from '../selectors';
+import { getAllCakesList, isCakesListLoading, getSelectedCake, isSubmitFormVisible } from '../selectors';
 
-import { CakeList, CakeDetail } from '../components/';
+import { CakeList, CakeDetail, SubmitCake } from '../components/';
 
 import { CakeModel } from '../models/CakeModel';
+import { NewCakeModel } from '../models/NewCakeModel';
 
 export interface AppStateProps {
   allCakes: CakeModel[];
   selectedCake?: CakeModel;
+  isSubmitFormVisible: boolean;
   isLoading: boolean;
 }
 
@@ -20,12 +29,17 @@ export interface AppDispatchProps {
   dispatch: Dispatch<{}>;
   selectCake: (id: string) => any;
   clearSelectedCake: () => any;
+
+  showSubmitCakeForm: () => any;
+  submitCake: (cake: NewCakeModel) => any;
+  cancelSubmitCake: () => any;
 }
 
 export const mapStateToProps: MapStateToProps<AppStateProps, void, AppState> = (state) => {
   return {
     allCakes: getAllCakesList(state),
     selectedCake: getSelectedCake(state),
+    isSubmitFormVisible: isSubmitFormVisible(state),
 
     isLoading: isCakesListLoading(state)
   };
@@ -35,7 +49,11 @@ export const mapDispatchToProps: MapDispatchToProps<AppDispatchProps, void> = di
   return {
     dispatch,
     selectCake: (id: string) => dispatch(selectCake(id)),
-    clearSelectedCake: () => dispatch(clearSelectedCake())
+    clearSelectedCake: () => dispatch(clearSelectedCake()),
+
+    showSubmitCakeForm: () => dispatch(showSubmitCakeForm()),
+    submitCake: (cake: CakeModel) => dispatch(submitCake(cake)),
+    cancelSubmitCake: () => dispatch(cancelSubmitCake())
   };
 };
 
@@ -47,11 +65,13 @@ export class App extends React.Component<AppStateProps & AppDispatchProps> {
 
   render() {
     const onSelectCake = (id: string) => this.props.selectCake(id);
+    const handleShowSubmitCakeForm = () => this.props.showSubmitCakeForm();
 
     return (
       <div className="app">
         <header className="app__header">
           <h1>Yummy Cakes</h1>
+          <button className="btn-show-submit-form" onClick={handleShowSubmitCakeForm}>Submit A Cake</button>
         </header>
 
         <div className="app__body">
@@ -63,6 +83,13 @@ export class App extends React.Component<AppStateProps & AppDispatchProps> {
             selectedCake={this.props.selectedCake}
             close={this.props.clearSelectedCake}
           />
+
+          {this.props.isSubmitFormVisible &&
+            <SubmitCake
+              submitCake={this.props.submitCake}
+              cancel={this.props.cancelSubmitCake}
+            />
+          }
         </div>
 
         <footer className="app__footer">Created by Kevin Wilson</footer>

@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { AppState } from '../reducers';
 
 const cakesEndpoint = (state: AppState) => state.restReducers.cakes;
-const selectedCakeId = (state: AppState) => state.cake.selectedCakeId;
+const cakeState = (state: AppState) => state.cake;
 
 export const isCakesListLoading = createSelector(
   [cakesEndpoint],
@@ -15,8 +15,13 @@ export const getAllCakesList = createSelector(
 );
 
 export const getSelectedCake = createSelector(
-  [getAllCakesList, selectedCakeId],
-  (cakes, selectedId) => {
-    return cakes.find(x => x.id === selectedId);
+  [getAllCakesList, cakeState],
+  (cakes, state) => {
+    return cakes.find(x => x.id === state.selectedCakeId);
   }
+);
+
+export const isSubmitFormVisible = createSelector(
+  [cakeState],
+  (state) => state.isSubmitFormVisible === true
 );

@@ -10,6 +10,8 @@ import { asMock } from '../__test-utils__';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { Dispatch } from 'redux';
+import { NewCakeModel } from '../models/NewCakeModel';
+import { CANCEL_SUBMIT_CAKE } from './';
 
 const createMockStore = configureMockStore([thunk]);
 
@@ -55,7 +57,7 @@ describe('Actions', () => {
     it('returns fetch action if nothing is loading', async () => {
       // Arrange
       const fetchCakesAction = {
-        type: 'MOCK_FETCH+CAKES'
+        type: 'MOCK_FETCH_CAKES'
       };
 
       asMock(isCakesListLoading).mockReturnValue(false);
@@ -68,6 +70,61 @@ describe('Actions', () => {
 
       // Assert
       expect(mockStore.getActions()).toEqual([fetchCakesAction]);
+    });
+  });
+
+  describe('showSubmitCakeForm', () => {
+    it('returns the expected action', () => {
+      // Act
+      const result = actions.showSubmitCakeForm();
+
+      // Assert
+      expect(result.type).toBe(actions.SHOW_SUBMIT_CAKE);
+    });
+  });
+
+  describe('submitCake', () => {
+    it('submits a new cake to the API', async () => {
+      // Arrange
+      const newCake: NewCakeModel = {
+        name: 'Cake Name',
+        yumFactor: 4,
+        comment: 'New comment',
+        imageUrl: 'http://imageurl.invalid'
+      };
+
+      const fetchCakesAction = {
+        type: 'MOCK_FETCH_CAKES'
+      };
+
+      const postNewCakeAction = {
+        type: 'MOCK_POST_CAKE'
+      };
+
+      asMock(rest.actions.cake).mockReturnValue((dispatch: Dispatch<any>) => dispatch(postNewCakeAction));
+      asMock(rest.actions.cakes).mockReturnValue((dispatch: Dispatch<any>) => dispatch(fetchCakesAction));
+      
+      const mockStore = createMockStore({});
+
+      // Act
+      await mockStore.dispatch(actions.submitCake(newCake));
+      await asMock(rest.actions.cake).mock.calls[0][2]();
+
+      // Assert
+      expect(mockStore.getActions()).toContain(postNewCakeAction);
+      expect(mockStore.getActions()).toContain(fetchCakesAction);
+
+      expect(mockStore.getActions().map(x => x.type)).toContain(CANCEL_SUBMIT_CAKE);
+    });
+  });
+
+  describe('cancelSubmitCake', () => {
+    it('returns the expected action', () => {
+      // Act
+      const result = actions.cancelSubmitCake();
+
+      // Assert
+      expect(result.type).toBe(actions.CANCEL_SUBMIT_CAKE);
     });
   });
 });

@@ -73,19 +73,26 @@ describe('App Container', () => {
 
   describe('App component', () => {
     const mockDispatch = jest.fn();
-    const selectCake = jest.fn();
-    const clearSelectedCake = jest.fn();
+    const mockSelectCake = jest.fn();
+    const mockClearSelectedCake = jest.fn();
+    const mockSubmitCake = jest.fn();
+    const mockCancelSubmitCake = jest.fn();
+    const mockShowSubmitCakeForm = jest.fn();
 
     const allCakes: CakeModel[] = [];
     const isLoading = false;
     const selectedCake: CakeModel = { id: 'id123' };
+    const isSubmitFormVisible = false;
 
     const fetchCakesIfNeededValue = {};
 
     afterEach(() => {
       mockDispatch.mockReset();
-      selectCake.mockReset();
-      clearSelectedCake.mockReset();
+      mockSelectCake.mockReset();
+      mockClearSelectedCake.mockReset();
+      mockSubmitCake.mockReset();
+      mockCancelSubmitCake.mockReset();
+      mockShowSubmitCakeForm.mockReset();
     });
 
     it('dispatches fetchCakesIfNeeded on mount', () => {
@@ -95,11 +102,15 @@ describe('App Container', () => {
       const cmp = (
         <App
           allCakes={allCakes}
+          isSubmitFormVisible={isSubmitFormVisible}
           isLoading={isLoading}
 
           dispatch={mockDispatch}
-          selectCake={selectCake}
-          clearSelectedCake={clearSelectedCake}
+          selectCake={mockSelectCake}
+          clearSelectedCake={mockClearSelectedCake}
+          submitCake={mockSubmitCake}
+          cancelSubmitCake={mockCancelSubmitCake}
+          showSubmitCakeForm={mockShowSubmitCakeForm}
         />
       );
 
@@ -119,12 +130,16 @@ describe('App Container', () => {
       const cmp = (
         <App
           allCakes={allCakes}
+          isSubmitFormVisible={isSubmitFormVisible}
           isLoading={isLoading}
           selectedCake={selectedCake}
 
           dispatch={mockDispatch}
-          selectCake={selectCake}
-          clearSelectedCake={clearSelectedCake}
+          selectCake={mockSelectCake}
+          clearSelectedCake={mockClearSelectedCake}
+          submitCake={mockSubmitCake}
+          cancelSubmitCake={mockCancelSubmitCake}
+          showSubmitCakeForm={mockShowSubmitCakeForm}
         />
       );
 
@@ -135,11 +150,11 @@ describe('App Container', () => {
       // Assert
       expect(el.find(CakeList).props().cakes).toBe(allCakes);
       el.find(CakeList).props().onSelectCake('test');
-      expect(selectCake).toHaveBeenCalledWith('test');
+      expect(mockSelectCake).toHaveBeenCalledWith('test');
 
       expect(el.find(CakeDetail).props().selectedCake).toBe(selectedCake);
       el.find(CakeDetail).props().close();
-      expect(clearSelectedCake).toHaveBeenCalled();
+      expect(mockClearSelectedCake).toHaveBeenCalled();
 
       expect(snapshot).toMatchSnapshot();
     });

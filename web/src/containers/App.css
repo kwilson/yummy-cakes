@@ -10,7 +10,19 @@
 
 .app__header {
   background: #efefef;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
+
+  .btn-show-submit-form {
+    background: rgb(11, 78, 202);
+    border: solid 1px white;
+    color: white;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 1.4em;
+  }
 
 .app__body {
   flex: 1;

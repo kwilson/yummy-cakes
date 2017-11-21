@@ -54,4 +54,39 @@ describe('Cake reducer', () => {
       expect(result.selectedCakeId).not.toBeDefined();
     });
   });
+
+  describe(actions.SHOW_SUBMIT_CAKE, () => {
+    it('sets isSubmitFormVisible to TRUE', () => {
+      // Arrange
+      const state: CakesState = {
+        ...defaultState
+      };
+
+      // Act
+      const result = reducer(state, {
+        type: actions.SHOW_SUBMIT_CAKE
+      });
+
+      // Assert
+      expect(result.isSubmitFormVisible).toBe(true);
+    });
+  });
+
+  describe(actions.CANCEL_SUBMIT_CAKE, () => {
+    it('sets isSubmitFormVisible to FALSE', () => {
+      // Arrange
+      const state: CakesState = {
+        ...defaultState,
+        isSubmitFormVisible: true
+      };
+
+      // Act
+      const result = reducer(state, {
+        type: actions.CANCEL_SUBMIT_CAKE
+      });
+
+      // Assert
+      expect(result.isSubmitFormVisible).toBe(false);
+    });
+  });
 });
